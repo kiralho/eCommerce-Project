@@ -25,10 +25,10 @@ parsed_json = JSON.parse(json)
 parsed_json["message"].each do |province, info|
     name = info["name"]
     rate = info["tax"]
-    Province.create(name: name, tax_rate: rate)
+    gst = info["gst"]
+    hst = info["hst"]
+    Province.create(name: name, tax_rate: rate, gst: gst, hst: hst)
 end
-
-# Province.create(name: "Manitoba", tax_rate: "0.08")
 
 # User.create(name: "vinicius", email: "teste@teste.com", address: "rua teste 1323", province_id: 1)
 
