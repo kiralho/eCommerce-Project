@@ -22,6 +22,23 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 json = File.read('provinces.json')
 parsed_json = JSON.parse(json)
 
+json2 = File.read('product.json')
+parsed_json2 = JSON.parse(json2)
+
+categories = [
+  { :name => 'Kitchen' },
+  { :name => 'Electronic' },
+  { :name => 'Video Game' },
+  { :name => 'Movie' },
+  { :name => 'Sport' }
+]
+
+transaction_status = [
+  { :name => 'Pending' },
+  { :name => 'Delivered' },
+  { :name => 'Canceled' }
+]
+
 parsed_json["message"].each do |province, info|
     name = info["name"]
     rate = info["tax"]
@@ -30,13 +47,7 @@ parsed_json["message"].each do |province, info|
     Province.create(name: name, tax_rate: rate, gst: gst, hst: hst)
 end
 
-categories = [
-             { :name => 'Kitchen' },
-             { :name => 'Electronic' },
-             { :name => 'Video Game' },
-             { :name => 'Movie' },
-             { :name => 'Sport' }
-    ]
+
 
 User.create(name: "vinicius", email: "teste@teste.com", address: "rua teste 1323", province_id: Province.first.id)
 
@@ -48,8 +59,24 @@ end
 
 # Product.create(name: "laptop", price: 500, description: "teste teste teste", category_id: 1)
 
+parsed_json2["message"].each do |product, info|
+  name = info["name"]
+  price = info["price"]
+  description = info["description"]
+  category = info["category"]
+  Product.create(name: name, price: price, description: description, category_id: category)
+end
+
 # TransactionStatus.create(name: "Pending")
 
-# Order.create(user_id: 1, transaction_status_id: 1)
+transaction_status.each do |transaction_type|
+  TransactionStatus.create(name: transaction_type[:name])
+end
 
-# ProductInOrder.create(order_id: 1, product_id: 1)
+Order.create(user_id: 1, transaction_status_id: 1)
+Order.create(user_id: 1, transaction_status_id: 2)
+
+ProductInOrder.create(order_id: 1, product_id: 1, price: Product.first.price, quantity: 1)
+ProductInOrder.create(order_id: 1, product_id: 2, price: Product.second.price, quantity: 2)
+
+ProductInOrder.create(order_id: 2, product_id: 4, price: Product.fourth.price, quantity: 2)
