@@ -1,0 +1,8 @@
+<p>Products in the selected category:</p>
+
+<ul>
+  <% @products.each do |product| %>
+  <% productid = '../product/' + product.id.to_s %>
+  <li><%= link_to product.name, productid %></li>
+  <% end %>
+</ul>

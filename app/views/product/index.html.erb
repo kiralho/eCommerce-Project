@@ -1,0 +1,6 @@
+<h2>Available products</h2>
+<ul>
+<% @product_collection.each do |product| %>
+  <li><%= link_to product.name, product %></li>
+<% end %>
+</ul>
