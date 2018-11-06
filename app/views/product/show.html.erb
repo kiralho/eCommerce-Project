@@ -4,6 +4,9 @@
   <li>Name: <%= @product.name %></li>
   <li>Price: CAD <%= @product.price %></li>
   <li>Description: <%= @product.description %></li>
+  <% if @product.image.present? %>
+    <li><%= image_tag @product.image.url %></li>
+  <% end %>
   <% categoryid = '../category/' + @product.category.id.to_s %>
   <li>Category: <%= link_to @product.category.name, categoryid %></li>
 </ul>

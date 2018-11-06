@@ -35,6 +35,8 @@ categories = [
 
 transaction_status = [
   { :name => 'Pending' },
+  { :name => 'Paid' },
+  { :name => 'Shipped' },
   { :name => 'Delivered' },
   { :name => 'Canceled' }
 ]
