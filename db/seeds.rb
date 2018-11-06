@@ -82,3 +82,7 @@ ProductInOrder.create(order_id: 1, product_id: 1, price: Product.first.price, qu
 ProductInOrder.create(order_id: 1, product_id: 2, price: Product.second.price, quantity: 2)
 
 ProductInOrder.create(order_id: 2, product_id: 4, price: Product.fourth.price, quantity: 2)
+
+Page.create(name: "about", content: "The Generic Store has been in the retail business for more than 5 years serving the community with outstanding customer service and great variety of products. The store decided to enter the online business
+            so customers can shop even at home!")
+Page.create(name: "contact_us", content: "In case of any problems or questions about products, the store can be contacted at 204-111-1111 or on the email generic.customerservice@genericstore.com")
