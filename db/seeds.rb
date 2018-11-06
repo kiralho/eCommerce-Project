@@ -30,9 +30,21 @@ parsed_json["message"].each do |province, info|
     Province.create(name: name, tax_rate: rate, gst: gst, hst: hst)
 end
 
-# User.create(name: "vinicius", email: "teste@teste.com", address: "rua teste 1323", province_id: 1)
+categories = [
+             { :name => 'Kitchen' },
+             { :name => 'Electronic' },
+             { :name => 'Video Game' },
+             { :name => 'Movie' },
+             { :name => 'Sport' }
+    ]
+
+User.create(name: "vinicius", email: "teste@teste.com", address: "rua teste 1323", province_id: Province.first.id)
 
 # Category.create(name: "computador")
+
+categories.each do |category|
+  Category.create(name: category[:name])
+end
 
 # Product.create(name: "laptop", price: 500, description: "teste teste teste", category_id: 1)
 
