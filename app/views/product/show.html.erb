@@ -1,5 +1,9 @@
 <h2>More about the product</h2>
-
+<ul>
+  <% categories.each do |category| %>
+    <li> <%= link_to category.name, category %></li>
+  <% end %>
+</ul>
 <ul>
   <li>Name: <%= @product.name %></li>
   <li>Price: CAD <%= @product.price %></li>
@@ -7,6 +11,5 @@
   <% if @product.image.present? %>
     <li><%= image_tag @product.image.url %></li>
   <% end %>
-  <% categoryid = '../category/' + @product.category.id.to_s %>
-  <li>Category: <%= link_to @product.category.name, categoryid %></li>
+  <li>Category: <%= link_to @product.category.name, @product.category %></li>
 </ul>

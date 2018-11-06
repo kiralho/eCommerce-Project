@@ -2,7 +2,6 @@
 
 <ul>
   <% @products.each do |product| %>
-  <% productid = '../product/' + product.id.to_s %>
-  <li><%= link_to product.name, productid %></li>
+    <li><%= link_to product.name, product %></li>
   <% end %>
 </ul>
