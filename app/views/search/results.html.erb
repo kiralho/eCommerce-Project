@@ -1,0 +1,11 @@
+<% if @category.nil? %>
+  <h2>No category was found.</h2>
+<% else %>
+  <h2>Products Found for category "<%= @category.name %>":</h2>
+  <h2>Amount of different Products <%= @products.count %>.</h2>
+  <ul>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, product %></li>
+  <% end %>
+  </ul>
+<% end %>
