@@ -18,7 +18,10 @@
       <li> <%= link_to category.name, category %></li>
     <% end %>
     </ul>
-    <p><%= link_to "Search", search_index_path %></p>
+    <ul>
+      <li><%= link_to "Products", root_path %></li>
+      <li><%= link_to "Search", search_index_path %></li>
+    </ul>
     <%= yield %>
   </body>
 </html>
