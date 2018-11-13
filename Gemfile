@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rubocop', '~> 0.60.0', require: false
 gem 'activeadmin'
 gem 'devise'
 gem 'carrierwave'
