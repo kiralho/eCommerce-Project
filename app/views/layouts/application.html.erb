@@ -13,6 +13,11 @@
     <header>
       <h1>Generic Store</h1>
     </header>
+    <ul>
+      <% categories.each do |category| %>
+      <li> <%= link_to category.name, category %></li>
+    <% end %>
+    </ul>
     <%= yield %>
   </body>
 </html>
