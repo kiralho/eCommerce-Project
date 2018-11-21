@@ -15,8 +15,11 @@
     </header>
     <ul>
       <% categories.each do |category| %>
-      <li> <%= link_to category.name, category %></li>
-    <% end %>
+        <li> <%= link_to category.name, category %></li>
+      <% end %>
+      <% pages.each do |page| %>
+        <li> <%= link_to page.name.capitalize!, page %></li>
+      <%end%>
     </ul>
     <ul>
       <li><%= link_to "Products", root_path %></li>
