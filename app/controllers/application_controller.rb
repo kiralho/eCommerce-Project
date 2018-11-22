@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # frozen_string_literal: true
   helper_method :categories
   helper_method :pages
   before_action :initialize_session
@@ -18,5 +19,4 @@ class ApplicationController < ActionController::Base
   def load_cart
     @cart = Product.find(session[:cart])
   end
-
 end

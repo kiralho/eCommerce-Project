@@ -1,4 +1,6 @@
 class ProductController < ApplicationController
+  # frozen_string_literal: true
+
   def index
     @product_collection = Product.all.page(params[:page]).per(2)
   end
@@ -11,12 +13,12 @@ class ProductController < ApplicationController
     @id = params[:id].to_i
     @product_to_add = Product.find(@id)
     session[:cart].each do |product|
-      if product["id"] == @id
+      if product['id'] == @id
         @product_found = true
       end
     end
     unless @product_found
-      session[:cart] << { :id => @id, :name => @product_to_add.name,:price => @product_to_add.price, :quantity => 1 }
+      session[:cart] << { id: @id, name: @product_to_add.name, price: @product_to_add.price, quantity: 1 }
     end
     redirect_to root_url
   end
@@ -25,7 +27,7 @@ class ProductController < ApplicationController
     @id = params[:id].to_i
     session[:newCart] = []
     session[:cart].each do |product|
-      unless product["id"] == @id
+      unless product['id'] == @id
         session[:newCart] << product
       end
     end
@@ -38,8 +40,8 @@ class ProductController < ApplicationController
     session[:cart].each do |product|
       if params[:teste].to_i <= 0
         remove_item_from_cart
-      elsif product["id"] == @id
-        product["quantity"] = params[:teste].to_i
+      elsif product['id'] == @id
+        product['quantity'] = params[:teste].to_i
         redirect_to '/cart'
       end
     end

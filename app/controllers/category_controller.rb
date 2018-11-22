@@ -1,4 +1,6 @@
 class CategoryController < ApplicationController
+  # frozen_string_literal: true
+
   def index
     @category_collection = Category.all
   end

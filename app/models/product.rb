@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  # frozen_string_literal: true
   mount_uploader :image, ImageUploader
   belongs_to :category
   has_many :product_in_orders
