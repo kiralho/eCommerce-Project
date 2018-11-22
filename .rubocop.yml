@@ -23,3 +23,9 @@ Metrics/LineLength:
   Enabled: false
   # Change the default 80 chars limit value
   Max: 120
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
