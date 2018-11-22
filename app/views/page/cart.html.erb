@@ -1,0 +1,16 @@
+<h2>Cart</h2>
+<%= debug session[:cart] %>
+
+<h2>Products in the cart:</h2>
+<ul>
+<% session[:cart].each do |product| %>
+  <li><%= link_to product["name"], product_path(product["id"]) %></li>
+  <%= form_tag(change_item_quantity_product_path(product["id"]), method: "post") do %>
+    <%= label_tag(:teste, "Change quantity:") %>
+    <%= text_field_tag(:teste) %>
+    <%= submit_tag("Confirm") %>
+  <% end %>
+  <li><%= link_to "Remove", remove_item_from_cart_product_path(product["id"]), method: :post %></li>
+<% end %>
+<p><%= link_to "Clear cart", clear_cart_product_index_path, method: :post %></p>
+</ul>

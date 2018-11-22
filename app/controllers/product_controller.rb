@@ -16,7 +16,7 @@ class ProductController < ApplicationController
       end
     end
     unless @product_found
-      session[:cart] << { :id => @id, :price => @product_to_add.price, :quantity => 1 }
+      session[:cart] << { :id => @id, :name => @product_to_add.name,:price => @product_to_add.price, :quantity => 1 }
     end
     redirect_to root_url
   end
@@ -30,7 +30,7 @@ class ProductController < ApplicationController
       end
     end
     session[:cart] = session[:newCart]
-    redirect_to root_url
+    redirect_to '/cart'
   end
 
   def change_item_quantity
@@ -40,7 +40,7 @@ class ProductController < ApplicationController
         remove_item_from_cart
       elsif product["id"] == @id
         product["quantity"] = params[:teste].to_i
-        redirect_to root_url
+        redirect_to '/cart'
       end
     end
   end

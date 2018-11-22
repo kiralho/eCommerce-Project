@@ -7,11 +7,6 @@
 <% @product_collection.each do |product| %>
   <li><%= link_to product.name, product %></li>
   <li><%= link_to "Add to cart", add_to_cart_product_path(product), method: :post %></li>
-  <%= form_tag(change_item_quantity_product_path(product), method: "post") do %>
-    <%= label_tag(:teste, "Change quantity:") %>
-    <%= text_field_tag(:teste) %>
-    <%= submit_tag("Confirm") %>
-  <% end %>
   <li><%= link_to "Remove", remove_item_from_cart_product_path(product), method: :post %></li>
 <% end %>
 </ul>
