@@ -46,6 +46,7 @@ class ProductController < ApplicationController
   end
 
   private
+
   def remove_item
     @id = params[:id].to_i
     session[:newCart] = []
